@@ -110,7 +110,10 @@ def main():
     if args.latent==True:
         print('VAE is true')
         print("PATH: ", args.stable_dif_path)
-        vae = AutoencoderKL.from_pretrained(args.stable_dif_path, subfolder="vae")
+        # runwayml/stable-diffusion-v1-5
+        #vae = AutoencoderKL.from_pretrained(args.stable_dif_path, subfolder="vae")
+
+        vae = AutoencoderKL.from_pretrained("runwayml/stable-diffusion-v1-5", subfolder="vae")
         vae = vae.to(args.device)
         
         # Freeze vae and text_encoder
