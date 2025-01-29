@@ -114,6 +114,7 @@ def main():
         #vae = AutoencoderKL.from_pretrained(args.stable_dif_path, subfolder="vae")
 
         vae = AutoencoderKL.from_pretrained("runwayml/stable-diffusion-v1-5", subfolder="vae")
+        print(vae)
         vae = vae.to(args.device)
         
         # Freeze vae and text_encoder
