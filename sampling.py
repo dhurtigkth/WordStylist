@@ -109,6 +109,7 @@ def main():
     
     if args.latent==True:
         print('VAE is true')
+        print("PATH: ", args.stable_dif_path)
         vae = AutoencoderKL.from_pretrained(args.stable_dif_path, subfolder="vae")
         vae = vae.to(args.device)
         
