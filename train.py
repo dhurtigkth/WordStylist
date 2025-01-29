@@ -185,7 +185,8 @@ class Diffusion:
         #if mix_rate is not None:
          #   print('mix rate', mix_rate)
         with torch.no_grad():
-            
+            print("x_text: ", x_text)
+            print("labels: ", labels)
             words = [x_text]*n
             print("words: ", words)
             for word in words:
