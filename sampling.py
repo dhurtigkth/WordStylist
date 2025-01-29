@@ -91,7 +91,11 @@ def main():
         unet = UNetModel(image_size = args.img_size, in_channels=3, model_channels=128, out_channels=3, num_res_blocks=1, attention_resolutions=(1, 2), num_heads=1, num_classes=num_classes, context_dim=128, vocab_size=vocab_size).to(args.device)
     #unet = nn.DataParallel(unet, device_ids = [0,1,2,3,4]) #,5,6,7])
     optimizer = optim.AdamW(unet.parameters(), lr=0.0001)
-    unet.load_state_dict(torch.load(f'{args.models_path}/models/ckpt.pt'))
+
+    # FOR COLAB
+    unet.load_state_dict(torch.load(f'{args.models_path}/models/ckpt.pt', map_location="cuda:0"))
+
+    #unet.load_state_dict(torch.load(f'{args.models_path}/models/ckpt.pt'))
     optimizer.load_state_dict(torch.load(f'{args.models_path}/models/optim.pt'))
     
     unet.eval()
