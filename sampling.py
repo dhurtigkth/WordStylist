@@ -65,7 +65,8 @@ def main():
     parser.add_argument('--mix_rate', type=int, default=1)
     parser.add_argument('--stable_dif_path', type=str, default='./stable-diffusion-v1-5')
     parser.add_argument('--models_path', type=str, default='/path/to/trained/models')
-    parser.add_argument('--words', type=list, default=['have', 'a', 'shite', 'day'])
+    #parser.add_argument('--words', type=list, default=['have', 'a', 'shite', 'day'])
+    parser.add_argument('--words', type=str, nargs='+', default=['have', 'a', 'shite', 'day'])
     
     args = parser.parse_args()
     
