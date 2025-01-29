@@ -187,6 +187,7 @@ class Diffusion:
         with torch.no_grad():
             
             words = [x_text]*n
+            print("words: ", words)
             for word in words:
                 transcript = label_padding(word, num_tokens) #self.transform_text(transcript)
                 word_embedding = np.array(transcript, dtype="int64")
