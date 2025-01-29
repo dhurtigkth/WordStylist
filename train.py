@@ -30,6 +30,7 @@ def setup_logging(args):
 def label_padding(labels, num_tokens):
     new_label_len = []
     print("letter2index[i]", letter2index)
+    print("labels: ", labels)
     ll = [letter2index[i] for i in labels]
     new_label_len.append(len(ll) + 2)
     ll = np.array(ll) + num_tokens
