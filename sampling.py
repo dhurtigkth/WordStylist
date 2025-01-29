@@ -96,14 +96,14 @@ def main():
     unet.load_state_dict(torch.load(f'{args.models_path}/models/ckpt.pt', map_location="cuda:0"))
 
     #unet.load_state_dict(torch.load(f'{args.models_path}/models/ckpt.pt'))
-    optimizer.load_state_dict(torch.load(f'{args.models_path}/models/optim.pt'))
+    optimizer.load_state_dict(torch.load(f'{args.models_path}/models/optim.pt', map_location="cuda:0"))
     
     unet.eval()
     
     
     ema = EMA(0.995)
     ema_model = copy.deepcopy(unet).eval().requires_grad_(False)
-    ema_model.load_state_dict(torch.load(f'{args.models_path}/models/ema_ckpt.pt'))
+    ema_model.load_state_dict(torch.load(f'{args.models_path}/models/ema_ckpt.pt', map_location="cuda:0"))
     #ema_model = ema_model.to(args.device)
     ema_model.eval()
     
